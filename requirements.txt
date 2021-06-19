@@ -278,8 +278,6 @@ tb-nightly==2.5.0a20210210
 tblib==1.6.0
 tensorboard==1.14.0
 tensorboard-plugin-wit==1.8.0
-tensorflow @ file:///D:/bld/tensorflow_1594833538462/work/tensorflow-1.14.0-cp37-cp37m-win_amd64.whl
-tensorflow-estimator==1.14.0
 termcolor==1.1.0
 terminado @ file:///D:/bld/terminado_1602679984498/work
 testpath==0.4.4
