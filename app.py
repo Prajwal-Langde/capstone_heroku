@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import pandas as pd 
+import numpy as np
 from nltk.corpus import stopwords 
 from sklearn.feature_extraction.text import TfidfVectorizer
 import joblib
@@ -80,9 +81,10 @@ def home():
             fin_df = cleantext(df_recom)
             fin_df = fin_df[['name', 'preds']]
             d = fin_df.groupby('name').mean().sort_values(ascending=False, by="preds")*100
-            # d = df.loc[user].sort_values(ascending=False)
             products = d[:5].index.tolist()
-            return render_template('index.html', products=products, submit="yes")
+            lis = np.arange(1,6).tolist()
+            product_display = [str(x) + " " + str(y) for y,x in list(zip(products, lis))]           
+            return render_template('index.html', products=product_display, submit="yes")
         else:
             return render_template('index.html', products="None")
     else:
